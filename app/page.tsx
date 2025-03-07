@@ -5,9 +5,9 @@ import GoogleMapEmbed from '../components/GoogleMapEmbed';
 import dynamic from 'next/dynamic';
 import TextSection1 from '../components/TextSection1';
 
-import ApprovalLogos from '../components/approvalLogos';
+import ApprovalLogos from '../components/ApprovalLogos';
 import Testimonials from '../components/Testimonials';
-import Countdown from '../components/Countdown';
+import Countdown from '../components/countdown';
 import OfferingsSlider from '../components/OfferingsSlider';
 import StatsSection from '@/components/StatsSection';
 import ComparisonSection from '@/components/ComparisonSection';
