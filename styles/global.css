@@ -1,0 +1,476 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    /*background-image: url("/media/images/2.png");*/
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  .nav-title {
+    flex-grow: 1;
+    text-align: center;
+    color: rgb(62, 90, 253);
+  }
+  
+  .menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 0;
+  }
+  
+  .menu-dropdown a {
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.5s;
+  }
+  
+  .menu-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .menu-dropdown.show {
+    display: flex;
+  }
+  
+
+
+
+  /* Define global styles for the card component */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .title {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* Aspect ratio 4:3 (height divided by width) */
+    position: relative;
+  }
+  
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /*End of iMage container*/
+
+  /*Form */
+.booking-form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+    
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .submit-button {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background: #0056b3;
+  }
+  
+  .error-message {
+    color: #d9534f;
+    background: rgba(217, 83, 79, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .success-message {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .login-prompt {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .form-container {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .input, .textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .input:focus, .textarea:focus {
+    border-color: #0077b6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 119, 182, 0.5);
+  }
+  /*Form css ends*/
+
+/*Footer*/
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.social-icons a.X:hover {
+  color: #1da1f2; /* Twitter Blue */
+}
+
+/* Add specific classes if you want different colors per icon */
+.social-icons a.facebook:hover {
+  color: #3b5998; /* Facebook Blue */
+}
+
+.social-icons a.whatsapp:hover {
+  color: #25D366; /* WhatsApp Green */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+/*Footer ends*/
+/*stats counter*/
+/* styles/global.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+.stats-container {
+  text-align: center;
+  background-color: #fff;
+  padding: 50px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+  margin: 50px auto;
+}
+
+.stat-item {
+  margin: 20px 0;
+}
+
+.stat-number {
+  font-size: 4em;
+  font-weight: bold;
+  color: #4a90e2;
+  margin: 0;
+}
+
+.stat-text {
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .stats-container {
+    padding: 30px 20px;
+  }
+  .stat-number {
+    font-size: 2.5em;
+  }
+  .stat-text {
+    font-size: 1em;
+  }
+}
+
+/*end of stats conter*/
+
+
+
+/* Animation Classes 
+.animate-on-view {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ Animation Classes End*/
+
+ /* Testimonials css */
+.testimonials {
+  background-color: #f8f8f8;
+  padding: 50px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.testimonials-container {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+}
+
+.testimonial {
+  background-color: #a5dab5;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  margin: 10px;
+}
+
+/* Media queries for responsive design */
+@media (min-width: 1024px) {
+  .testimonials-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .testimonials-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+blockquote {
+  margin: 0;
+  font-style: italic;
+  color: #555;
+}
+
+blockquote footer {
+  margin-top: 10px;
+  color: #777;
+}
+
+blockquote strong {
+  display: block;
+  font-size: 1.1em;
+}
+
+blockquote span {
+  font-size: 0.9em;
+}
+
+/* Testimonials css Ends */
+
+/* Enrolment Button Styles */
+.enrolment-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #4a90e2; /* Blue background color */
+  color: #fff; /* White text color */
+  font-size: 1.2em; /* Slightly larger text */
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  animation: shake 4s infinite ease; /* Apply shaking animation */
+}
+
+.enrolment-btn:hover {
+  background-color: #357ab8; /* Darker blue on hover */
+  animation: none; /* Stop shaking on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.enrolment-btn:active {
+  background-color: #285a8e; /* Even darker blue on click */
+  animation: none; /* Stop shaking on click */
+  transform: translateY(-1px); /* Slight adjustment on click */
+}
+
+.enrolment-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.5); /* Focus outline */
+}
+
+.enrolment-btn:visited {
+  animation: none; /* Stop shaking when visited */
+  background-color: #4a90e2; /* Maintain original background color when visited */
+}
+/* Shaking Animation Keyframes */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translatey(-10px); }
+  20%, 40%, 60%, 80% { transform: translatey(10px); }
+}
+
+/*Loading page*/
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
