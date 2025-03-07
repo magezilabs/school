@@ -3,6 +3,14 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
 
+// Define an interface for student data
+interface StudentData {
+  name: string;
+  age: number;
+  class: string;
+  [key: string]: any; // Optional if additional fields are dynamic
+}
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -22,22 +30,42 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 // Google Authentication Setup
-export const provider = new GoogleAuthProvider();
-export const signInWithGoogle = () => signInWithPopup(auth, provider);
-export const logOut = () => signOut(auth);
+const provider = new GoogleAuthProvider();
 
-// Function to Add Student to Firestore
-export const addStudent = async (studentData) => {
+// Function for signing in with Google
+export const signInWithGoogle = async (): Promise<void> => {
   try {
-    await addDoc(collection(db, 'students'), studentData);
-    return { success: true };
-  } catch (error) {
-    console.error("Error adding student:", error);
-    return { success: false, error };
+    await signInWithPopup(auth, provider);
+    console.log("User signed in with Google!");
+  } catch (error: any) {
+    console.error("Error during Google sign-in:", error.message);
+    throw new Error(error.message);
   }
 };
 
-// Export Authentication State Listener
-export const onAuthChange = (callback) => {
-  return onAuthStateChanged(auth, callback);
+// Function to log out
+export const logOut = async (): Promise<void> => {
+  try {
+    await signOut(auth);
+    console.log("User signed out successfully!");
+  } catch (error: any) {
+    console.error("Error during sign-out:", error.message);
+    throw new Error(error.message);
+  }
+};
+
+// Function to add a student to Firestore
+export const addStudent = async (studentData: StudentData): Promise<{ success: boolean; message?: string }> => {
+  try {
+    await addDoc(collection(db, 'students'), studentData);
+    return { success: true };
+  } catch (error: any) {
+    console.error("Error adding student:", error.message);
+    return { success: false, message: error.message };
+  }
+};
+
+// Export authentication state listener
+export const onAuthChange = (callback: (user: any) => void): void => {
+  onAuthStateChanged(auth, callback);
 };
