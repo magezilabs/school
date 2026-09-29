@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a standard school website based on nextjs and firebase for backend
 
 ## Getting Started
 
-First, run the development server:
+First, setup a project in firebase and copy all the credentials to the .env
+
+run the development server:
 
 ```bash
 npm run dev
